@@ -83,7 +83,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.6027643084526062
   },
-  "Shortcut" : "",
+  "Shortcut" : "T",
   "Bold Color" : {
     "Red Component" : 0.9635517001152039,
     "Color Space" : "Calibrated",
@@ -363,16 +363,16 @@
   },
   "Default Bookmark" : "No",
   "Cursor Color" : {
-    "Red Component" : 0.9921568627450981,
+    "Red Component" : 0.9921568632125854,
     "Color Space" : "Calibrated",
-    "Blue Component" : 0.7529411764705882,
+    "Blue Component" : 0.7529411911964417,
     "Alpha Component" : 1,
-    "Green Component" : 0.4274509803921568
+    "Green Component" : 0.4274509847164154
   },
   "Disable Smcup Rmcup" : false,
   "Name" : "Zsh",
   "Blinking Cursor" : true,
-  "Guid" : "7218BEC0-2451-40AC-BA1B-EA368754453B",
+  "Guid" : "CD191399-B640-4648-9D58-974024C12CA7",
   "Ansi 1 Color" : {
     "Red Component" : 0.9874743819236755,
     "Color Space" : "Calibrated",
@@ -451,7 +451,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.9150882959365845
   },
-  "Transparency" : 0,
+  "Transparency" : 0.0,
   "Initial Text" : "",
   "Background Color" : {
     "Red Component" : 0.1176580935716629,
@@ -476,12 +476,12 @@
   "Use Tab Color" : false,
   "Visual Bell" : true,
   "Custom Directory" : "Recycle",
+  "Thin Strokes" : 2,
   "Ansi 5 Color" : {
     "Red Component" : 0.9875143766403198,
     "Color Space" : "Calibrated",
     "Blue Component" : 0.7053173780441284,
     "Alpha Component" : 1,
     "Green Component" : 0.2987906634807587
-  },
-  "Thin Strokes" : 2
+  }
 }
