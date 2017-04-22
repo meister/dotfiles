@@ -7,4 +7,4 @@ fi
 sudo apt-get update
 sudo apt-get install -y code # or code-insiders
 
-echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.plank/dock1/launchers/code.dockitem
+echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem

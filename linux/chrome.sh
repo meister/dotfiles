@@ -6,4 +6,4 @@ fi
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable
 
-echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/google-chrome.desktop" > ~/.plank/dock1/launchers/google-chrome.dockitem
+echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/google-chrome.desktop" > ~/.config/plank/dock1/launchers/google-chrome.dockitem
