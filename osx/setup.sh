@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # iTerm configuration
 if [[ -d /Applications/iTerm.app ]]; then
   ln -s $BASEDIR/iterm/Zsh.json "$BASEDIR/Library/Application Support/iTerm2/DynamicProfiles"
