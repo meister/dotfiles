@@ -4,7 +4,9 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "$BASEDIR"
 
 # Prep folders
-mkdir -p $BASEDIR/.dotfiles/local
+mkdir -p $BASEDIR/local
+
+cd $BASEDIR
 
 # Enter sudo
 sudo -v
