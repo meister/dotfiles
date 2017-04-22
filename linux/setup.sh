@@ -21,7 +21,7 @@ fi
 
 # Install tools from APT
 sudo apt-get install -y \
-  git-all \
+  git \
   nodejs \
   code \
   google-chrome-stable
