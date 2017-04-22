@@ -12,12 +12,12 @@ cd $BASEDIR
 sudo -v
 
 # If the platform is Linux, try an apt-get to install zsh and then recurse
-if [ $platform == 'Linux' ]; then
+if [[ $platform == 'Linux' ]]; then
   if [ -f /etc/debian_version ]; then
     ./linux/setup.sh
   fi
 
 # If the platform is OS X, tell the user to install zsh :)
-elif [ $platform == 'Darwin' ]; then
+elif [[ $platform == 'Darwin' ]]; then
   ./osx/setup.sh
 fi
