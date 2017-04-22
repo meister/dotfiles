@@ -12,11 +12,10 @@ else
     mv ~/.dotfiles ~/.dotfiles_backup
   fi
 
-  mkdir -p ~/.dotfiles
-
   if [ -x `command -v git` ]; then
-    eval "cd ~/.dotfiles && git clone https://github.com/meister/dotfiles"
+    eval "git clone https://github.com/meister/dotfiles ~/.dotfiles"
   else
+    mkdir -p ~/.dotfiles
     eval "$CMD https://github.com/meister/dotfiles/tarball/master | tar -xzv -C ~/.dotfiles --strip-components=1 --exclude='{.gitignore}'"
   fi
 
