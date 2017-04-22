@@ -1,6 +1,5 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-if [[ ! -f ]]; 
 source ~/.dotfiles/local/pip-completion.zsh
 source ~/.dotfiles/keybinds.zsh
 source ~/.dotfiles/antigen/antigen.zsh
