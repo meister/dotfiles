@@ -1,17 +1,16 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
+source ~/.dotfiles/local/antigen.zsh
 source ~/.dotfiles/local/pip-completion.zsh
-source ~/.dotfiles/keybinds.zsh
-source ~/.dotfiles/antigen/antigen.zsh
+source ~/.dotfiles/zsh/keybinds.zsh
 
-source ~/.iterm2_shell_integration.`basename $SHELL`
+[[ "$TERM_PROGRAM" == "iTerm.app" ]] && source ~/.iterm2_shell_integration.`basename $SHELL`
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
@@ -29,6 +28,9 @@ antigen bundle meister/pure
 # Syntax Highlighting command line (NOTE! Must be the last one)
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Include additional config from ~/.local.zshrc
+[[ -f ~/.local.zshrc ]] && source ~/.local.zshrc
 
 # Tell antigen that you're done.
 antigen apply

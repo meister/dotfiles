@@ -12,7 +12,7 @@ sudo -v
 # Install zsh
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
-  if [[ -f /bin/zsh -o -f /usr/bin/zsh ]]; then
+  if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Install Oh My Zsh if it isn't already present
     # if [[ ! -d $BASEDIR/oh-my-zsh/ ]]; then
     #   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -35,7 +35,7 @@ install_zsh () {
       fi
 
       if [[ -f /etc/debian_version ]]; then
-        sudo apt-get install zsh
+        sudo apt-get install -y  zsh
         install_zsh
       fi
 
@@ -49,16 +49,20 @@ install_zsh () {
   fi
 }
 
-install_zsh
+# install_zsh
 
 # Link zsh configs
-if [[ -f ~/.zshrc ]]; then
-  mv ~/.zshrc ~/.zshrc-`date "+%Y-%m-%d_%H:%M:%S"`
-fi
+[ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc-`date "+%Y-%m-%d_%H:%M:%S"`
+[ -h ~/.zshrc ] && rm ~/.zshrc
+
+echo $BASEDIR/zsh/zshrc
 
 ln -s $BASEDIR/zsh/zshrc ~/.zshrc
 
+# Install antigen
+curl -L git.io/antigen > $BASEDIR/local/antigen.zsh
+
 # Install Python tools + updated Vim
-pip install --upgrade pip
-pip install --upgrade Pygments
-pip completion --zsh > $BASEDIR/.dotfiles/local/pip-completion.zsh
+sudo pip install --upgrade pip
+sudo pip install --upgrade Pygments
+pip completion --zsh > $BASEDIR/local/pip-completion.zsh

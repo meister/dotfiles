@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PLATFORM=$(uname)
+export BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PLATFORM=$(uname)
 
 # Prep folders
 mkdir -p $BASEDIR/local
