@@ -47,3 +47,6 @@ source ./install-fonts.sh
 
 # Install Zsh
 source $BASEDIR/install-zsh.sh
+
+# Clean up
+sudo apt autoremove
