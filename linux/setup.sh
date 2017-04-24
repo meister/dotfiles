@@ -34,8 +34,10 @@ sudo apt-get install -y \
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
 # Add dock icons
-printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
+# Google Chrome
 printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/google-chrome.desktop" > ~/.config/plank/dock1/launchers/google-chrome.dockitem
+# VS Code
+printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
 
 # Install fonts
 source ./install-fonts.sh
