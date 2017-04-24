@@ -1,39 +1,51 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+PLATFORM=$(uname)
 
+# Load local configuration
+[[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
+
+# Load Antigen package manager
 source ~/.dotfiles/local/antigen.zsh
 source ~/.dotfiles/local/pip-completion.zsh
 source ~/.dotfiles/zsh/keybinds.zsh
 
-[[ "$TERM_PROGRAM" == "iTerm.app" ]] && source ~/.iterm2_shell_integration.`basename $SHELL`
-
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
+
+if [[ $PLATFORM == 'Darwin' ]]; then
+  # In case if iTerm include shell integration script (disabled for now)
+  # [[ "$TERM_PROGRAM" == "iTerm.app" ]] && source ~/.iterm2_shell_integration.`basename $SHELL`
+  antigen bundle xcode
+elif [[ $PLATFORM == 'Linux' ]]; then
+  antigen bundle ubuntu
+fi
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
 antigen bundle pip
-antigen bundle lein
 antigen bundle command-not-found
+
+# VIM Vundle cmd line script
+antigen bundle vundle
 
 # Autosuggest from history
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 
 # NVM plugin
+export NVM_AUTO_USE=true
 antigen bundle lukechilds/zsh-nvm
 
 # Purity theme
 antigen bundle mafredri/zsh-async
 antigen bundle meister/pure
 
+# Include additional config from ~/.local.zshrc
+[ -f ~/.local.zshrc ] && source ~/.local.zshrc
+
 # Syntax Highlighting command line (NOTE! Must be the last one)
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Include additional config from ~/.local.zshrc
-[[ -f ~/.local.zshrc ]] && source ~/.local.zshrc
-
 # Tell antigen that you're done.
 antigen apply
-
-# Load local configuration
-[[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh

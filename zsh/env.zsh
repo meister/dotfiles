@@ -9,3 +9,6 @@ if [ ! -z "`which pygmentize`" ]; then
   export LESS='-R'
   export LESSOPEN='|pygmentize -g %s'
 fi
+
+# Fall back zsh function for coloured output
+pretty() { pygmentize -f terminal "$1" | less -R }
