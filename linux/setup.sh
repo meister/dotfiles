@@ -26,9 +26,15 @@ sudo apt-get install -y \
   git \
   nodejs \
   python-pip \
-  vim \
   code \
-  google-chrome-stable
+  google-chrome-stable \
+  # For add-apt-repository
+  software-properties-common \
+  python-software-properties
+
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install -y vim
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
