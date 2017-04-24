@@ -34,11 +34,14 @@ sudo apt-get install -y \
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
 # Add dock icons
-echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
-echo "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/google-chrome.desktop" > ~/.config/plank/dock1/launchers/google-chrome.dockitem
+printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
+printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/google-chrome.desktop" > ~/.config/plank/dock1/launchers/google-chrome.dockitem
 
 # Install fonts
 source ./install-fonts.sh
 
 # Configure Pantheon
-[ -x `command -v pantheon-terminal` ] && source ./pantheon.sh
+[[ -x `command -v pantheon-terminal` ]] && source $BASEDIR/linux/pantheon.sh
+
+# Install Zsh
+source $BASEDIR/install-zsh.sh

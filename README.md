@@ -6,7 +6,7 @@ This repo contains mainly dotfiles for the terminal and editor setup.
 
 To install this exact setup:
 ```
-sh -c "`curl -fsSL https://raw.github.com/meister/dotfiles/master/install.sh`"
+bash -c "`curl -fsSL https://raw.github.com/meister/dotfiles/master/install.sh`"
 ```
 
 ## Ideas from these guys
