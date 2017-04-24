@@ -35,7 +35,7 @@ install_zsh () {
       fi
 
       if [[ -f /etc/debian_version ]]; then
-        sudo apt-get install -y  zsh
+        sudo apt-get install -y zsh
         install_zsh
       fi
 
@@ -49,7 +49,7 @@ install_zsh () {
   fi
 }
 
-# install_zsh
+install_zsh
 
 # Link zsh configs
 [ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc-`date "+%Y-%m-%d_%H:%M:%S"`
