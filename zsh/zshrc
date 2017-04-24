@@ -5,7 +5,7 @@ PLATFORM=$(uname)
 [[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
 
 # Load Antigen package manager
-source ~/.dotfiles/local/antigen.zsh
+source ~/.dotfiles/antigen/antigen.zsh
 source ~/.dotfiles/local/pip-completion.zsh
 source ~/.dotfiles/zsh/keybinds.zsh
 
