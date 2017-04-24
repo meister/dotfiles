@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-[ -x `command -v wget` ] && CMD="wget --no-check-certificate -O -"
-[ -x `command -v curl` ] >/dev/null 2>&1 && CMD="curl -#L"
+[[ -x `command -v wget` ]] && CMD="wget --no-check-certificate -O -"
+[[ -x `command -v curl` ]] >/dev/null 2>&1 && CMD="curl -#L"
 
 if [ -z "$CMD" ]; then
   echo "No curl or wget available. Aborting."
@@ -12,7 +12,7 @@ else
     mv ~/.dotfiles ~/.dotfiles_backup
   fi
 
-  if [ -x `command -v git` ]; then
+  if [[ -x `command -v git` ]]; then
     eval "git clone https://github.com/meister/dotfiles ~/.dotfiles"
   else
     mkdir -p ~/.dotfiles
