@@ -64,3 +64,7 @@ Some notable packages will be installed:
 * http://dotfiles.github.io/
 * https://github.com/nicksp/dotfiles
 * https://github.com/mathiasbynens/dotfiles
+
+## License
+
+MIT © [Martin Kapp](https://github.com/meister)
