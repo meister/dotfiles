@@ -9,6 +9,12 @@ goals are to bring visibility for the developers about the Node versions and Git
 * [x] ElementaryOS (Loki)
 * [ ] Ubuntu 16.04
 
+## Todo
+* [ ] Include [Snazzyfied theme](https://github.com/meister/vim-snazzyfied) for VIM
+* [ ] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
+* [ ] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
+  subjectively necessary plugins
+
 ## Installation
 
 To install this exact setup:
@@ -51,10 +57,14 @@ Some notable packages will be installed:
   for shell TAB auto-completing for some command line tools (try `nvm <TAB>` for example)
 * [Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
   for Fish shell-like like syntax highlighting
-* [Pure theme](https://github.com/meister/pure)
-  by yours truly
+* [Modified Zsh Pure theme](https://github.com/meister/pure)
+  originally by [Sindre Sorhus](https://github.com/sindresorhus/pure)
 
 ## Ideas from these guys
 * http://dotfiles.github.io/
 * https://github.com/nicksp/dotfiles
 * https://github.com/mathiasbynens/dotfiles
+
+## License
+
+MIT © [Martin Kapp](https://github.com/meister)
