@@ -15,6 +15,12 @@ sudo -v
 if [[ $PLATFORM == 'Linux' ]]; then
   if [ -f /etc/debian_version ]; then
     ./linux/setup.sh
+  elif [ -f /etc/arch-release ]; then
+    ./linux/setup-arch.sh
+  else
+    echo "Your Linux distribution is not supported at this moment."
+    echo "Th script needs an Ubuntu based distro or macOS for now."
+    exit 1
   fi
 
 # If the platform is OS X, tell the user to install zsh :)
