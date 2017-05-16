@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "$BASEDIR"
 
@@ -53,9 +55,6 @@ install_zsh
 echo $BASEDIR/zsh/zshrc
 
 ln -s $BASEDIR/zsh/zshrc ~/.zshrc
-
-# Install antigen
-curl -L git.io/antigen > $BASEDIR/local/antigen.zsh
 
 # Install Python tools + updated Vim
 sudo pip install --upgrade pip

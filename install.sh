@@ -13,7 +13,7 @@ else
   fi
 
   if [[ -x `command -v git` ]]; then
-    eval "git clone https://github.com/meister/dotfiles ~/.dotfiles"
+    eval "git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
   else
     mkdir -p ~/.dotfiles
     eval "$CMD https://github.com/meister/dotfiles/tarball/master | tar -xzv -C ~/.dotfiles --strip-components=1 --exclude='{.gitignore}'"

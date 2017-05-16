@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+set -e
+
 cd $BASEDIR/linux
 
+# Install VS Code from AUR
+yaourt -Syu --devel --aur visual-studio-code
+
 # Install missing packages
-pacman -S \
-  # Microsoft VS Code
-  visual-studio-code \
+sudo pacman -S \
   # Install Node.JS
   nodejs npm \
   # Python PIP
