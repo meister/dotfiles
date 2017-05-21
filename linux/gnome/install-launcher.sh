@@ -3,7 +3,7 @@
 LAUNCHER_NAME="${1}"
 
 launcher_exists() {
-  LAUNCHERS=$(dconf read /org/gnome/shell/)
+  LAUNCHERS=$(dconf read /org/gnome/shell/favorite-apps)
 
   if [[ "${LAUNCHERS}" == *"${LAUNCHER_NAME}"* ]]; then
     return 0
