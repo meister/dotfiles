@@ -5,7 +5,7 @@ set -e
 cd $BASEDIR/linux
 
 # Install VS Code from AUR
-yaourt -Syu -aur visual-studio-code
+yaourt -Syu --aur visual-studio-code
 
 # Install any missing packages:
 # - Node.JS with NPM
