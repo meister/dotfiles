@@ -48,8 +48,8 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code
 # Install fonts
 source ./install-fonts.sh
 
-# Configure Pantheon
-[[ -x `command -v pantheon-terminal` ]] && source $BASEDIR/linux/pantheon.sh
+# Configure terminal themes
+source ./install-terminal-themes.sh
 
 # Install Zsh
 source $BASEDIR/install-zsh.sh
