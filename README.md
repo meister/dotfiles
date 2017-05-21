@@ -8,12 +8,14 @@ goals are to bring visibility for the developers about the Node versions and Git
 * [ ] macOS Sierra
 * [x] ElementaryOS (Loki)
 * [ ] Ubuntu 16.04
+* [x] Arch Linux (Antergos with Gnome desktop)
 
 ## Todo
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vim-snazzyfied) for VIM
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
 * [ ] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
   subjectively necessary plugins
+* [ ] Make install components configurable
 
 ## Installation
 
@@ -27,10 +29,11 @@ bash -c "`curl -fsSL https://raw.github.com/meister/dotfiles/master/install.sh`"
 Installation consists of installing few components:
 * Base tools
 * Installing terminal themes & fonts
+  * Currently supported: pantheon (default with ElementaryOS) and gnome-terminal
 * Installing and configuring [Zsh](http://zsh.sourceforge.net)
 * Installing and configuring VIM
 
-### Linux (Ubuntu based)
+### Ubuntu based Linux
 
 On Ubuntu the script will add sources and install following packages:
 * git
@@ -39,6 +42,15 @@ On Ubuntu the script will add sources and install following packages:
 * vim
 * code (VS Code)
 * google-chrome-stable
+
+### Arch Linux
+
+On Arch Linux the script will add sources and install following packages:
+* nodejs (edge)
+* python-pip
+* vim
+* code (VS Code from AUR)
+* zsh
 
 ## Zsh
 

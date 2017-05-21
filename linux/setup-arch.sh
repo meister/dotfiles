@@ -22,11 +22,11 @@ sudo pacman -S \
 # Install fonts
 source ./install-fonts.sh
 
-# Configure terminal
-source ./install-terminal-themes.sh
-
 # Configure Zsh
 source $BASEDIR/install-zsh.sh
+
+# Configure terminal
+source ./install-terminal-themes.sh
 
 # Open new Gnome Terminal
 gnome-terminal
