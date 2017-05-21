@@ -46,13 +46,13 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/goog
 printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
 
 # Install fonts
-source ./install-fonts.sh
+(source ./install-fonts.sh)
 
 # Configure terminal themes
-source ./install-terminal-themes.sh
+(source ./install-terminal-themes.sh)
 
 # Install Zsh
-source $BASEDIR/install-zsh.sh
+(source $BASEDIR/install-zsh.sh)
 
 # Clean up
 sudo apt autoremove

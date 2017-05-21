@@ -3,7 +3,6 @@
 set -e
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo "$BASEDIR"
 
 # Prep folders
 mkdir -p $BASEDIR/.dotfiles/local

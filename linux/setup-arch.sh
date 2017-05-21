@@ -7,6 +7,8 @@ cd $BASEDIR/linux
 # Install VS Code from AUR
 yaourt -Syu --aur visual-studio-code
 
+(source ./gnome/install-launcher.sh visual-studio-code)
+
 # Install any missing packages:
 # - Node.JS with NPM
 # - Python PIP
@@ -29,4 +31,4 @@ sudo pacman -S \
 (source ./install-terminal-themes.sh)
 
 # Open new Gnome Terminal
-gnome-terminal
+gnome-terminal --tab --profile=snazzyfied

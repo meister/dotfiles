@@ -11,4 +11,4 @@ gsettings set org.pantheon.terminal.settings allow-bold false
 gsettings set org.pantheon.terminal.settings cursor-color '#ebece6'
 gsettings set org.pantheon.terminal.settings save-exited-tabs true
 gsettings set org.pantheon.terminal.settings follow-last-tab true
-gsettings set org.pantheon.terminal.settings shell ''
+gsettings set org.pantheon.terminal.settings shell '/usr/bin/zsh --login'

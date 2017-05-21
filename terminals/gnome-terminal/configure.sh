@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROFILE_UUID="a646dae7-3c4c-4abf-b34e-763a2ac1abd6"
-CWD=$(dirname $0)
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 profile_exists() {
   PROFILES=$(dconf read /org/gnome/terminal/legacy/profiles:/list)
@@ -36,7 +36,7 @@ else
 fi
 
 # Import profile
-dconf load /org/gnome/terminal/legacy/profiles:/ < ${CWD}/snazzyfied.profile
+dconf load /org/gnome/terminal/legacy/profiles:/ < ${DIR}/snazzyfied.profile
 
 # Set as default profile
 dconf write /org/gnome/terminal/legacy/profiles:/default "'${PROFILE_UUID}'"
