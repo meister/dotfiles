@@ -12,7 +12,7 @@ fi
 [ -L ~/.vimrc ] && rm ~/.vimrc
 
 # Link config
-ln -s $BASEDIR/vim/vimrc-meister ~/.vimrc
+ln -s $BASEDIR/vim/vimrc ~/.vimrc
 
 # Install plugins
 vim +PluginInstall +qall

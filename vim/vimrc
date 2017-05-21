@@ -1,43 +1,128 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+"qua: set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+" Code plugins
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sheerun/vim-polyglot'
 
-" All of your Plugins must be added before the following line
+" Syntax detection
+Plugin 'vim-syntastic/syntastic'
+
+" Git modified icons
+Plugin 'airblade/vim-gitgutter'
+
+" File tree browser
+Plugin 'scrooloose/nerdtree'
+
+" Fuzzy search CTRL+P
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Open tabs/buffers
+Plugin 'vim-ctrlspace/vim-ctrlspace'
+
+" Branch helper
+Plugin 'tpope/vim-fugitive'
+
+" DevIcons (require nerd fonts)
+Plugin 'ryanoasis/vim-devicons'
+
+" Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Colorschemes
+Plugin 'chriskempson/base16-vim'
+Plugin 'tyrannicaltoucan/vim-quantum'
+
+" Color theme switcher
+Plugin 'felixhummel/setcolors.vim'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
+
 " Brief help
 " :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" General settings
+let mapleader=","
+
+syntax enable
+
+" colorscheme base16-oceanicnext
+colorscheme quantum
+let g:quantum_black=1
+let g:airline_theme='quantum'
+
+set background=dark
+set hidden               " Required by CTRL+Space
+set cursorline           " Highlight line
+set expandtab
+set modelines=0
+set clipboard=unnamed    " Allow copy to OS clipboard
+set termguicolors        " 16-bit colors
+set ttyscroll=10
+set encoding=utf-8
+set tabstop=2
+" set nowrap
+set showcmd
+set number
+set hlsearch
+set pastetoggle=<F3>
+set backspace=indent,eol,start
+
+" Map window navigation keys
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Nerdtree configuration
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Airline configuration
+set laststatus=2
+set showtabline=2
+
+let g:airline#extensions#branch#format = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" let g:airline_symbols.space = "\ua0"
+
+" unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒 '
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = '∄'
+" let g:airline_symbols.whitespace = 'Ξ'
