@@ -16,7 +16,8 @@ add_launcher() {
   if [ "${LAUNCHERS}" == "" ]; then
     NEW_LIST="['${LAUNCHER_NAME}.desktop']"
   else
-    NEW_LIST="${LAUNCHERS/\]/,'${LAUNCHER_NAME}.desktop']}"
+    NEW_VALUE=",'${LAUNCHER_NAME}.desktop'"
+    NEW_LIST="${LAUNCHERS/\]/${NEW_VALUE}]}"
   fi
 
   dconf write /org/gnome/shell/favorite-apps "${NEW_LIST}"
