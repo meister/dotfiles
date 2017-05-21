@@ -18,4 +18,7 @@ sudo cp $BASEDIR/fonts/* /Library/Fonts/
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
 # Install Zsh
-source $BASEDIR/install-zsh.sh
+brew install zsh zsh-completions
+
+# Configure Zsh
+source $BASEDIR/configure-zsh.sh

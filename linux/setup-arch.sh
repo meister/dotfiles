@@ -25,7 +25,7 @@ sudo pacman -S \
 (source ./install-fonts.sh)
 
 # Configure Zsh
-(source $BASEDIR/install-zsh.sh)
+(source $BASEDIR/configure-zsh.sh)
 
 # Configure terminal
 (source ./install-terminal-themes.sh)

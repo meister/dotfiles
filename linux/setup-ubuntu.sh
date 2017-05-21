@@ -52,7 +52,7 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code
 (source ./install-terminal-themes.sh)
 
 # Install Zsh
-(source $BASEDIR/install-zsh.sh)
+(source $BASEDIR/configure-zsh.sh)
 
 # Clean up
 sudo apt autoremove
