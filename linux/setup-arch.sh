@@ -5,17 +5,17 @@ set -e
 cd $BASEDIR/linux
 
 # Install VS Code from AUR
-yaourt -Syu --devel --aur visual-studio-code
+yaourt -Syu -aur visual-studio-code
 
-# Install missing packages
+# Install any missing packages:
+# - Node.JS with NPM
+# - Python PIP
+# - VIM
+# - Zsh
 sudo pacman -S \
-  # Install Node.JS
   nodejs npm \
-  # Python PIP
   python-pip \
-  # VIM
   vim \
-  # Zsh
   zsh
 
 
