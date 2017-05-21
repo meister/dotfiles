@@ -31,7 +31,6 @@ use-theme-colors=false
 cursor-foreground-color='rgb(235,236,230)'
 font='SauceCodePro Nerd Font 12'
 use-theme-background=false
-bold-color-same-as-fg=true
 bold-color='#EEEEEDEDEEEE'
 background-color='rgb(30,31,41)'
 
@@ -51,3 +50,5 @@ use-system-font=false
 use-theme-colors=false
 cursor-foreground-color='rgb(252,76,180)'
 background-color='rgb(30,31,41)'
+bold-color-same-as-fg=true
+font='InputMonoNarrow Nerd Font 10.5'
