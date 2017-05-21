@@ -36,3 +36,5 @@ gnome-terminal --tab --profile=snazzyfied
 # Done!
 echo "----------------------------------------------------------"
 echo "All done! If all went well, Zsh is running in another tab."
+
+exit
