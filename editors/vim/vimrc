@@ -128,4 +128,4 @@ endif
 " let g:airline_symbols.notexists = '∄'
 " let g:airline_symbols.whitespace = 'Ξ'
 
-colorscheme "base16-default-dark"
+colorscheme base16-default-dark
