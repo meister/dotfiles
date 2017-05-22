@@ -54,5 +54,11 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code
 # Install Zsh
 (source $BASEDIR/configure-zsh.sh)
 
+# Configure VIM
+(source $BASEDIR/editors/vim/configure.sh)
+
+# Configure VS Code
+(source $BASEDIR/editors/vscode/configure.sh)
+
 # Clean up
 sudo apt autoremove

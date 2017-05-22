@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -61,9 +62,9 @@ let mapleader=","
 syntax enable
 
 " colorscheme base16-oceanicnext
-colorscheme quantum
-let g:quantum_black=1
-let g:airline_theme='quantum'
+" colorscheme quantum
+" let g:quantum_black=1
+" let g:airline_theme='quantum'
 
 set background=dark
 set hidden               " Required by CTRL+Space
@@ -126,3 +127,5 @@ endif
 " let g:airline_symbols.spell = 'Ꞩ'
 " let g:airline_symbols.notexists = '∄'
 " let g:airline_symbols.whitespace = 'Ξ'
+
+colorscheme "base16-default-dark"

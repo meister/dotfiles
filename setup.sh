@@ -31,7 +31,11 @@ configure_system() {
 }
 
 configure_vim() {
-  source ./configure-vim.sh
+  source ./editors/vim/configure.sh
+}
+
+configure_vscode() {
+  source ./editors/vscode/configure.sh
 }
 
 case "${1}" in
@@ -45,8 +49,14 @@ case "${1}" in
     exit 0
     ;;
 
+  "vscode")
+    configure_vscode
+    exit 0
+    ;;
+
   *)
     configure_system
     configure_vim
+    configure_vscode
     ;;
 esac
