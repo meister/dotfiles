@@ -38,6 +38,11 @@ configure_vscode() {
   source ./editors/vscode/configure.sh
 }
 
+configure_zsh() {
+  export ZSH_CONFIG_TYPE="configure"
+  source ./zsh/configure.sh
+}
+
 case "${1}" in
   "system")
     configure_system
@@ -51,6 +56,11 @@ case "${1}" in
 
   "vscode")
     configure_vscode
+    exit 0
+    ;;
+
+  "configure-zsh")
+    configure_zsh
     exit 0
     ;;
 

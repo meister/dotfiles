@@ -95,7 +95,8 @@
       },
       "Use Cursor Guide" : false,
       "Unlimited Scrollback" : true,
-      "Custom Command" : "Yes",
+      "Custom Command" : "No",
+      "Command" : "",
       "Smart Selection Rules" : [
         {
           "notes" : "Word bounded by whitespace",
@@ -432,7 +433,6 @@
         "Alpha Component" : 1,
         "Green Component" : 0.931364893913269
       },
-      "Command" : "",
       "Terminal Type" : "xterm-256color",
       "Horizontal Spacing" : 1,
       "Option Key Sends" : 0,

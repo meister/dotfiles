@@ -2,7 +2,11 @@
 
 set -e
 
-BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Configure or Install?
+INSTALL=true
+if [ "${ZSH_CONFIG_TYPE}" == "configure" ]; then
+  INSTALL=false
+fi
 
 # Prep folders
 mkdir -p $BASEDIR/.dotfiles/local
@@ -54,7 +58,9 @@ install_zsh () {
   fi
 }
 
-install_zsh
+if $INSTALL; then
+  install_zsh
+fi
 
 # Link zsh configs
 [ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc-`date "+%Y-%m-%d_%H:%M:%S"`

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # iTerm configuration
-if [[ -d /Applications/iTerm.app ]]; then
-  ln -s $BASEDIR/terminals/iterm/Zsh.json "$BASEDIR/Library/Application Support/iTerm2/DynamicProfiles"
+if [ -d /Applications/iTerm.app ]; then
+  cp $BASEDIR/terminals/iterm/Snazzyfied.json "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 fi
 
 # Don’t display the annoying prompt when quitting iTerm

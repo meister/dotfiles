@@ -1,4 +1,5 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
 
 # Load local configuration
@@ -34,6 +35,7 @@ antigen bundle zsh-users/zsh-completions
 
 # NVM plugin
 export NVM_AUTO_USE=true
+export NVM_LAZY_LOAD=true
 antigen bundle lukechilds/zsh-nvm
 
 # Purity theme
