@@ -20,7 +20,7 @@ install_zsh () {
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-      chsh -s $(which zsh)
+      sudo chsh -s $(which zsh) $USER
       echo "Set the default shell to Zsh"
     fi
 
