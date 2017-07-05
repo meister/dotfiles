@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"editor.fontFamily": "Fira Code",
+	"editor.fontSize": 14,
+    "editor.fontLigatures": true,
+	"editor.renderWhitespace": "all",
+	"files.trimTrailingWhitespace": true,
+	"terminal.external.osxExec": "iTerm.app",
+    "eslint.autoFixOnSave": true,
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Snazzified",
+    "workbench.iconTheme": "vs-seti",
+    "search.useIgnoreFilesByDefault": true
+}

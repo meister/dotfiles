@@ -1,6 +1,7 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
+export ANTIGEN_CACHE=~/.antigen-cache
 
 # Load local configuration
 [[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
@@ -34,13 +35,17 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
 # NVM plugin
+# export NVM_NO_USE=true
 export NVM_AUTO_USE=true
-export NVM_LAZY_LOAD=true
 antigen bundle lukechilds/zsh-nvm
 
-# Purity theme
+# Pure theme
+export PURE_NODE_TRACK=1
 antigen bundle mafredri/zsh-async
 antigen bundle meister/pure
+
+# antigen bundle tylerreckart/hyperzsh
+#antigen bundle denysdovhan/spaceship-zsh-theme
 
 # Include additional config from ~/.local.zshrc
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc

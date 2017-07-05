@@ -3,6 +3,13 @@
 [[ -x `command -v wget` ]] && CMD="wget --no-check-certificate -O -"
 [[ -x `command -v curl` ]] >/dev/null 2>&1 && CMD="curl -#L"
 
+local git=false
+if [[ -x `command -v git` ]]; then
+  if `git --version`; then
+    git=true
+  fi
+fi
+
 if [ -z "$CMD" ]; then
   echo "No curl or wget available. Aborting."
 else
@@ -12,7 +19,7 @@ else
     mv ~/.dotfiles ~/.dotfiles_backup
   fi
 
-  if [[ -x `command -v git` ]]; then
+  if $git; then
     eval "git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
   else
     mkdir -p ~/.dotfiles
