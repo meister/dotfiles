@@ -31,6 +31,7 @@ else
     echo "Using ${CMD} to download scripts"
     mkdir -p ~/.dotfiles
     eval "${CMD} https://github.com/meister/dotfiles/tarball/master | tar -xzv -C ~/.dotfiles --strip-components=1 --exclude='{.gitignore}'"
+    eval "${CMD} https://github.com/zsh-users/antigen/tarball/master | tar -xzv -C ~/.dotfiles/antigen --strip-components=1 --exclude='{.gitignore}'"
   fi
 
   source ~/.dotfiles/setup.sh
