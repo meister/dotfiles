@@ -58,6 +58,15 @@ install_zsh () {
   fi
 }
 
+# Python tools
+install_python_tools() {
+  if [ ! -z `command -v pip` ]; then
+    sudo pip install --upgrade pip
+    sudo pip install --upgrade Pygments
+    pip completion --zsh > $BASEDIR/local/pip-completion.zsh
+  fi
+}
+
 if $INSTALL; then
   install_zsh
 fi
@@ -71,6 +80,4 @@ echo $BASEDIR/zsh/zshrc
 ln -s $BASEDIR/zsh/zshrc ~/.zshrc
 
 # Install Python tools + updated Vim
-sudo pip install --upgrade pip
-sudo pip install --upgrade Pygments
-pip completion --zsh > $BASEDIR/local/pip-completion.zsh
+install_python_tools
