@@ -3,12 +3,12 @@ DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
 export ANTIGEN_CACHE=~/.antigen-cache
 
-# Load local configuration
+# Load local configurations
 [[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
+[[ -f ~/.dotfiles/local/pip-completion.zsh ]] && source ~/.dotfiles/local/pip-completion.zsh
 
 # Load Antigen package manager
 source ~/.dotfiles/antigen/antigen.zsh
-source ~/.dotfiles/local/pip-completion.zsh
 source ~/.dotfiles/zsh/keybinds.zsh
 
 # Load the oh-my-zsh's library.

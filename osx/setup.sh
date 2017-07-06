@@ -14,8 +14,14 @@ sudo cp $BASEDIR/fonts/* /Library/Fonts/
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Install VS Code
+source $BASEDIR/osx/install-vscode.sh
+
 # Install NVM
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+
+# Install latest VIM
+brew install vim --with-override-system-vim
 
 # Install Zsh
 brew install zsh zsh-completions
