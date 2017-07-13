@@ -19,9 +19,9 @@ goals are to bring visibility for the developers about the Node versions and Git
 
 ## Installation
 
-To install this exact setup:
+To install this everything:
 ```
-bash -c "`curl -fsSL https://raw.github.com/meister/dotfiles/master/install.sh`"
+curl -fsSL https://raw.githubusercontent.com/meister/dotfiles/master/install.sh | bash -s -- --all
 ```
 
 ### Steps in general

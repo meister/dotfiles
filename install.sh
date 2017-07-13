@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Libs
+source ./libs/colors.sh
+
 set -e
 
 [[ -x `command -v wget` ]] && CMD="wget --no-check-certificate -O -"
@@ -16,19 +19,33 @@ function has_git() {
 }
 
 if [ -z "${CMD}" ]; then
-  echo "No curl or wget available. Aborting."
+  echo -e "${COLOR_RED}No curl or wget available. Aborting.${COLOR_END}"
 else
-  echo "Installing dotfiles"
-
-  if [ -d ~/.dotfiles ]; then
-    mv ~/.dotfiles ~/.dotfiles_backup
-  fi
+  echo -e "${COLOR_YELLOW}Installing dotfiles${COLOR_END}"
 
   if has_git; then
-    echo "Using Git to download scripts"
-    eval "git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
+    echo -e "${COLOR_WHITE}Using Git to download scripts${COLOR_END}"
+
+    CMD="git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
+
+    if [ -d ~/.dotfiles ]; then
+      if [ ! -d ~/.dotfiles/.git ]; then
+        mv ~/.dotfiles ~/.dotfiles_backup
+        echo "Backed up previous dotfiles to ~/.dotfiles_backup"
+      else
+        echo "Pulling updates to existing ~/.dotfiles"
+        CMD="(cd ~/.dotfiles && git pull --recurse-submodules)"
+      fi
+    fi
+
+    eval "${CMD}"
   else
-    echo "Using ${CMD} to download scripts"
+    echo -e "${COLOR_WHITE}Using ${CMD} to download scripts${COLOR_END}"
+    if [ -d ~/.dotfiles ]; then
+      mv ~/.dotfiles ~/.dotfiles_backup
+      echo "Backed up previous dotfiles to ~/.dotfiles_backup"
+    fi
+
     mkdir -p ~/.dotfiles
     eval "${CMD} https://github.com/meister/dotfiles/tarball/master | tar -xzv -C ~/.dotfiles --strip-components=1 --exclude='{.gitignore}'"
     eval "${CMD} https://github.com/zsh-users/antigen/tarball/master | tar -xzv -C ~/.dotfiles/antigen --strip-components=1 --exclude='{.gitignore}'"

@@ -46,13 +46,13 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/goog
 printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
 
 # Install fonts
-(source ./install-fonts.sh)
+(source $BASEDIR/fonts/install.sh)
 
 # Configure terminal themes
 (source ./install-terminal-themes.sh)
 
 # Install Zsh
-(source $BASEDIR/configure-zsh.sh)
+(source $BASEDIR/zsh/configure.sh)
 
 # Configure VIM
 (source $BASEDIR/editors/vim/configure.sh)
@@ -62,3 +62,7 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code
 
 # Clean up
 sudo apt autoremove
+
+echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
+echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
+echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"

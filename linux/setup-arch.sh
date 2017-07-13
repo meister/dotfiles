@@ -22,18 +22,17 @@ sudo pacman -S \
 
 
 # Install fonts
-(source ./install-fonts.sh)
+(source $BASEDIR/fonts/install.sh)
 
 # Configure Zsh
-(source $BASEDIR/configure-zsh.sh)
+(source $BASEDIR/zsh/configure.sh)
 
 # Configure terminal
 (source ./install-terminal-themes.sh)
 
 # Open new Gnome Terminal
-gnome-terminal --tab --profile=snazzyfied
+# gnome-terminal --tab --profile=snazzyfied
 
-# Done!
-echo "----------------------------------------------------------"
-echo "All done! If all went well, Zsh is running in another tab."
-echo "----------------------------------------------------------"
+echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
+echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
+echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
