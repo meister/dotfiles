@@ -38,6 +38,11 @@ configure_system() {
   fi
 }
 
+install_fonts() {
+  no_command=false
+  source ./fonts/install.sh
+}
+
 configure_vim() {
   no_command=false
   source ./editors/vim/configure.sh

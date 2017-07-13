@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+CWD=$(pwd)
+PLATFORM=$(uname -s)
+
 # Download free fonts from the net
 mkdir -p $BASEDIR/local/fonts
 cd $BASEDIR/local/fonts
@@ -11,12 +14,17 @@ curl -fLo "Source Code Pro Nerd Font Complete.ttf" https://raw.github.com/ryanoa
 # RobotoMonoForPowerline Nerd Font
 curl -fLo "Roboto Mono Nerd Font Complete.ttf" https://raw.github.com/ryanoasis/nerd-fonts/master/patched-fonts/RobotoMono/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf
 # Fonts with ligatures
-curl -fLo "FiraCode_1.204.zip" https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip && unzip FiraCode_1.204.zip && rm FiraCode_1.204.zip
+if [ ! -f "FiraCode_1.204.zip" ]; then
+  curl -fLo "FiraCode_1.204.zip" https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip
+  mkdir -p firacode
+  unzip FiraCode_1.204.zip -d firacode
+fi
 
 # Install fonts
-if [ "${PLATFORM}" == "Darwin" ]
+if [ "${PLATFORM}" == "Darwin" ]; then
   sudo cp $BASEDIR/fonts/* /Library/Fonts/
-  sudo cp $BASEDIR/local/fonts/* /Library/Fonts/
+  sudo cp $BASEDIR/local/fonts/*.ttf /Library/Fonts/
+  sudo cp $BASEDIR/local/fonts/firacode/ttf/*.ttf /Library/Fonts/
 else
   mkdir -p ~/.local/share/fonts
   cd ~/.local/share/fonts
@@ -24,7 +32,10 @@ else
   # InputMonoNarrow Nerd Font
   cp $BASEDIR/fonts/* ~/.local/share/fonts/
   cp $BASEDIR/local/fonts/* ~/.local/share/fonts/
+  cp $BASEDIR/local/fonts/firacode/ttf/* ~/.local/share/fonts/
 
   # Clear cache
   fc-cache -f -v
 fi
+
+cd $CWD
