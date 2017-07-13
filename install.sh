@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+export BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Libs
-source ./libs/colors.sh
+source ${BASEDIR}/libs/colors.sh
 
 set -e
 
