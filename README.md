@@ -13,7 +13,7 @@ goals are to bring visibility for the developers about the Node versions and Git
 ## Todo
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vim-snazzyfied) for VIM
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
-* [ ] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
+* [x] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
   subjectively necessary plugins
 * [ ] Make install components configurable
 
@@ -23,6 +23,17 @@ To install this everything:
 ```
 curl -fsSL https://raw.githubusercontent.com/meister/dotfiles/master/install.sh | bash -s -- --all
 ```
+
+### Install options
+
+| Arguments           | Description  |
+|---|---|
+| `--system`          | Install system tools and fonts |
+| `--fonts`           | Install fonts |
+| `--vim`             | Configure VIM |
+| `--vscode`          | Configure VS Code |
+| `--install-zsh`     | Install and configure ZSH |
+| `--zsh`             | Configure ZSH (does not perform install) |
 
 ### Steps in general
 
