@@ -26,14 +26,14 @@ curl -fsSL https://raw.githubusercontent.com/meister/dotfiles/master/install.sh 
 
 ### Install options
 
-| Arguments           | Description  |
-|---|---|
-| `--system`          | Install system tools and fonts |
-| `--fonts`           | Install fonts |
-| `--vim`             | Configure VIM |
-| `--vscode`          | Configure VS Code |
-| `--install-zsh`     | Install and configure ZSH |
-| `--zsh`             | Configure ZSH (does not perform install) |
+| Arguments           | Description
+|---|---
+| `--system`          | Install system tools and fonts<br>[Will make OS specific configurations](#system-configurations)
+| `--fonts`           | Install fonts
+| `--vim`             | Configure VIM (if you have it installed)
+| `--vscode`          | Configure VS Code (if you have it installed)
+| `--install-zsh`     | Install and configure ZSH
+| `--zsh`             | Configure ZSH (if you have it installed)
 
 ### Steps in general
 
@@ -43,6 +43,17 @@ Installation consists of installing few components:
   * Currently supported: pantheon (default with ElementaryOS) and gnome-terminal
 * Installing and configuring [Zsh](http://zsh.sourceforge.net)
 * Installing and configuring VIM
+
+## System Configurations
+
+### macOS
+
+On macOS the script will install following tools:
+* Homebrew
+* Vim 8 (from Homebrew)
+* VS Code
+* NVM
+* Zsh
 
 ### Ubuntu based Linux
 
