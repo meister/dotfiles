@@ -47,6 +47,12 @@ install_zsh () {
         install_zsh
       fi
 
+      # Configure for Solus OS (install in system step)
+      if [[ -f /etc/solus-release ]]; then
+        echo "Zsh will be installed with system tools. Or just run `sudo eopkg install zsh`."
+        install_zsh
+      fi
+
     # If the platform is OS X, tell the user to install zsh :)
     elif [[ $platform == 'Darwin' ]]; then
       echo "We'll install zsh, then re-run this script!"

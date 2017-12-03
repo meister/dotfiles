@@ -26,6 +26,8 @@ configure_system() {
       ./linux/setup.sh
     elif [ -f /etc/arch-release ]; then
       ./linux/setup-arch.sh
+    elif [ -f /etc/solus-release ]; then
+      ./linux/setup-solus.sh
     else
       echo -e "${COLOR_RED}Your Linux distribution is not supported at this moment.${COLOR_END}"
       echo -e "This script needs an Ubuntu or Arch Linux based distro or macOS for now."
