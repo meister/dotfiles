@@ -11,7 +11,7 @@ cd $BASEDIR/linux
 # - Zsh
 sudo eopkg install vscode \
   nodejs \
-  python-pip \
+  pip \
   zsh
 
 # Fix missing VS Code symlink

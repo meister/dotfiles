@@ -75,6 +75,7 @@ if arg "install-zsh"; then install_zsh; fi
 if arg "zsh"   ; then configure_zsh; fi
 
 if arg "all"; then
+  no_command=false
   configure_system
   configure_vim
   configure_vscode
