@@ -9,13 +9,14 @@ goals are to bring visibility for the developers about the Node versions and Git
 * [x] ElementaryOS (Loki)
 * [ ] Ubuntu 16.04
 * [x] Arch Linux (Antergos with Gnome desktop)
+* [x] Solus OS (with Gnome desktop)
 
 ## Todo
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vim-snazzyfied) for VIM
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
 * [x] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
   subjectively necessary plugins
-* [ ] Make install components configurable
+* [x] Make install components configurable
 
 ## Installation
 

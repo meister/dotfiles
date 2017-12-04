@@ -82,7 +82,7 @@ if arg "all"; then
   configure_zsh
 fi
 
-if [ $no_command ]; then
+if $no_command; then
   echo "Usage: ${0} [args]"
   echo ""
   echo "Arguments:"

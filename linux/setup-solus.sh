@@ -31,7 +31,7 @@ sudo eopkg install vscode \
 (source $BASEDIR/zsh/configure.sh)
 
 # Configure terminal
-#(source ./install-terminal-themes.sh)
+(source ./install-terminal-themes.sh solus)
 
 # Open new Gnome Terminal
 # gnome-terminal --tab --profile=snazzyfied
