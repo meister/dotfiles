@@ -26,6 +26,8 @@ configure_system() {
       ./linux/setup.sh
     elif [ -f /etc/arch-release ]; then
       ./linux/setup-arch.sh
+    elif [ -f /etc/solus-release ]; then
+      ./linux/setup-solus.sh
     else
       echo -e "${COLOR_RED}Your Linux distribution is not supported at this moment.${COLOR_END}"
       echo -e "This script needs an Ubuntu or Arch Linux based distro or macOS for now."
@@ -73,13 +75,14 @@ if arg "install-zsh"; then install_zsh; fi
 if arg "zsh"   ; then configure_zsh; fi
 
 if arg "all"; then
+  no_command=false
   configure_system
   configure_vim
   configure_vscode
   configure_zsh
 fi
 
-if [ $no_command ]; then
+if $no_command; then
   echo "Usage: ${0} [args]"
   echo ""
   echo "Arguments:"

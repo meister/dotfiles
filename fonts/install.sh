@@ -8,7 +8,7 @@ mkdir -p $BASEDIR/local/fonts
 cd $BASEDIR/local/fonts
 
 # DroidSansMonoForPowerline Nerd Font
-curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
+curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 # SourceCodePro Nerd Font
 curl -fLo "Source Code Pro Nerd Font Complete.ttf" https://raw.github.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf
 # RobotoMonoForPowerline Nerd Font
@@ -30,9 +30,10 @@ else
   cd ~/.local/share/fonts
 
   # InputMonoNarrow Nerd Font
-  cp $BASEDIR/fonts/* ~/.local/share/fonts/
-  cp $BASEDIR/local/fonts/* ~/.local/share/fonts/
-  cp $BASEDIR/local/fonts/firacode/ttf/* ~/.local/share/fonts/
+  cp $BASEDIR/fonts/*.ttf ~/.local/share/fonts/
+  cp $BASEDIR/local/fonts/*.otf ~/.local/share/fonts/
+  cp $BASEDIR/local/fonts/*.ttf ~/.local/share/fonts/
+  cp $BASEDIR/local/fonts/firacode/ttf/*.ttf ~/.local/share/fonts/
 
   # Clear cache
   fc-cache -f -v
