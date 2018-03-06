@@ -14,6 +14,14 @@ source ~/.dotfiles/zsh/keybinds.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+# NVM plugin
+export NVM_AUTO_USE=true
+antigen bundle lukechilds/zsh-nvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 if [[ $PLATFORM == 'Darwin' ]]; then
   # In case if iTerm include shell integration script (disabled for now)
   # [[ "$TERM_PROGRAM" == "iTerm.app" ]] && source ~/.iterm2_shell_integration.`basename $SHELL`
@@ -33,11 +41,6 @@ antigen bundle vundle
 # Autosuggest from history
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
-
-# NVM plugin
-# export NVM_NO_USE=true
-export NVM_AUTO_USE=true
-antigen bundle lukechilds/zsh-nvm
 
 # Pure theme
 export PURE_NODE_TRACK=1
