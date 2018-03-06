@@ -2,6 +2,12 @@
 
 PROFILE_UUID="a646dae7-3c4c-4abf-b34e-763a2ac1abd6"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+OS="${1}"
+COLOR_PROFILE="${DIR}/snazzyfied.profile"
+
+if [ -f "${COLOR_PROFILE}.${OS}" ]; then
+  COLOR_PROFILE="${COLOR_PROFILE}.${OS}"
+fi
 
 profile_exists() {
   PROFILES=$(dconf read /org/gnome/terminal/legacy/profiles:/list)
@@ -36,7 +42,7 @@ else
 fi
 
 # Import profile
-dconf load /org/gnome/terminal/legacy/profiles:/ < ${DIR}/snazzyfied.profile
+dconf load /org/gnome/terminal/legacy/profiles:/ < ${COLOR_PROFILE}
 
 # Set as default profile
 dconf write /org/gnome/terminal/legacy/profiles:/default "'${PROFILE_UUID}'"
