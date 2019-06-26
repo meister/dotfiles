@@ -14,9 +14,10 @@ source ~/.dotfiles/zsh/keybinds.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# NVM plugin
+# NVM & NPM plugins
 export NVM_AUTO_USE=true
 antigen bundle lukechilds/zsh-nvm
+antigen bundle lukechilds/zsh-better-npm-completion
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -34,6 +35,7 @@ fi
 antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found
+antigen bundle docker
 
 # VIM Vundle cmd line script
 antigen bundle vundle

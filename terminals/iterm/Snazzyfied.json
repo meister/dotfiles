@@ -1,6 +1,7 @@
 {
   "Profiles": [
     {
+      "Name" : "Snazzyfied",
       "Badge Text" : "",
       "Set Local Environment Vars" : true,
       "Prompt Before Closing 2" : 2,
@@ -58,8 +59,10 @@
         "telnet",
         "zsh"
       ],
+      "Scrollback With Status Bar" : false,
       "Scrollback Lines" : 0,
       "Scrollback in Alternate Screen" : true,
+      "Draw Powerline Glyphs" : true,
       "Hide After Opening" : false,
       "Flashing Bell" : false,
       "Cursor Guide Color" : {
@@ -373,7 +376,6 @@
         "Green Component" : 0.4274509847164154
       },
       "Disable Smcup Rmcup" : false,
-      "Name" : "Snazzyfied",
       "Blinking Cursor" : true,
       "Guid" : "A9D2F9A4-231B-4EF7-8133-15C4D21CB358",
       "Ansi 1 Color" : {
@@ -424,7 +426,7 @@
       },
       "Blur" : true,
       "Normal Font" : "InputMonoNarrowNerdFontC-Regular 13",
-      "Vertical Spacing" : 1.07250094126506,
+      "Vertical Spacing" : 1.01,
       "Disable Printing" : false,
       "Ansi 7 Color" : {
         "Red Component" : 0.9312370419502258,
