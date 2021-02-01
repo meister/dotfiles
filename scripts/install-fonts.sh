@@ -4,8 +4,8 @@ CWD=$(pwd)
 PLATFORM=$(uname -s)
 
 # Download free fonts from the net
-mkdir -p $BASEDIR/local/fonts
-cd $BASEDIR/local/fonts
+mkdir -p "${BASEDIR}/local/fonts"
+cd "${BASEDIR}/local/fonts" || exit 11
 
 # DroidSansMonoForPowerline Nerd Font
 curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
@@ -22,21 +22,21 @@ fi
 
 # Install fonts
 if [ "${PLATFORM}" == "Darwin" ]; then
-  sudo cp $BASEDIR/fonts/* /Library/Fonts/
-  sudo cp $BASEDIR/local/fonts/*.ttf /Library/Fonts/
-  sudo cp $BASEDIR/local/fonts/firacode/ttf/*.ttf /Library/Fonts/
+  sudo cp "${BASEDIR}/fonts/*" /Library/Fonts/
+  sudo cp "${BASEDIR}/local/fonts/*.ttf" /Library/Fonts/
+  sudo cp "${BASEDIR}/local/fonts/firacode/ttf/*.ttf" /Library/Fonts/
 else
-  mkdir -p ~/.local/share/fonts
-  cd ~/.local/share/fonts
+  mkdir -p ~/.local/share/fonts || exit 12
+  cd ~/.local/share/fonts || exit 13
 
   # InputMonoNarrow Nerd Font
-  cp $BASEDIR/fonts/*.ttf ~/.local/share/fonts/
-  cp $BASEDIR/local/fonts/*.otf ~/.local/share/fonts/
-  cp $BASEDIR/local/fonts/*.ttf ~/.local/share/fonts/
-  cp $BASEDIR/local/fonts/firacode/ttf/*.ttf ~/.local/share/fonts/
+  cp "${BASEDIR}/fonts/*.ttf" ~/.local/share/fonts/
+  cp "${BASEDIR}/local/fonts/*.otf" ~/.local/share/fonts/
+  cp "${BASEDIR}/local/fonts/*.ttf" ~/.local/share/fonts/
+  cp "${BASEDIR}/local/fonts/firacode/ttf/*.ttf" ~/.local/share/fonts/
 
   # Clear cache
   fc-cache -f -v
 fi
 
-cd $CWD
+cd "${CWD}" || return

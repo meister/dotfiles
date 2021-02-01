@@ -5,9 +5,9 @@ for development environments that use NodeJS and Git heavily. The Zsh theme and 
 goals are to bring visibility for the developers about the Node versions and Git statuses.
 
 ## Note: Current testing status
-* [ ] macOS Sierra
+* [ ] macOS
 * [x] ElementaryOS (Loki)
-* [ ] Ubuntu 16.04
+* [ ] Ubuntu 18.04
 * [x] Arch Linux (Antergos with Gnome desktop)
 * [x] Solus OS (with Gnome desktop)
 
@@ -29,12 +29,12 @@ curl -fsSL https://raw.githubusercontent.com/meister/dotfiles/master/install.sh 
 
 | Arguments           | Description
 |---|---
-| `--system`          | Install system tools and fonts<br>[Will make OS specific configurations](#system-configurations)
+| `--all`             | Install system tools and fonts<br>[Will make OS specific configurations](#system-configurations)
+| `--install-zsh`     | Install and configure ZSH
+| `--configure-zsh`   | Configure ZSH (if you have it installed)
 | `--fonts`           | Install fonts
 | `--vim`             | Configure VIM (if you have it installed)
 | `--vscode`          | Configure VS Code (if you have it installed)
-| `--install-zsh`     | Install and configure ZSH
-| `--zsh`             | Configure ZSH (if you have it installed)
 
 ### Steps in general
 
@@ -54,13 +54,13 @@ On macOS the script will install following tools:
 * Vim 8 (from Homebrew)
 * VS Code
 * NVM
-* Zsh
+* Zsh (when *not* on macOS 10.15 or macOS 11)
 
 ### Ubuntu based Linux
 
 On Ubuntu the script will add sources and install following packages:
 * git
-* nodejs (6.x)
+* nodejs (lts)
 * python-pip
 * vim
 * code (VS Code)
@@ -69,7 +69,7 @@ On Ubuntu the script will add sources and install following packages:
 ### Arch Linux
 
 On Arch Linux the script will add sources and install following packages:
-* nodejs (edge)
+* nodejs (lts)
 * python-pip
 * vim
 * code (VS Code from AUR)
@@ -99,6 +99,11 @@ Some notable packages will be installed:
 * http://dotfiles.github.io/
 * https://github.com/nicksp/dotfiles
 * https://github.com/mathiasbynens/dotfiles
+
+## Contributions
+
+Feel free to make any suggestions under [issues](https://github.com/meister/dotfiles/issues/new?labels=enhancement)
+or if you find an issue, [report it](https://github.com/meister/dotfiles/issues/new?labels=bug) or just make a pull request.
 
 ## License
 

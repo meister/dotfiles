@@ -1,29 +1,31 @@
 #!/usr/bin/env bash
 
-export BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export PLATFORM="$(uname -s)"
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PLATFORM="$(uname -s)"
+
+export BASEDIR PLATFORM
 
 # Test for args
 args="${*}"
 arg() { [[ "${args}" ==  *"--${1}"* ]]; }
 
 # Prep folders
-mkdir -p $BASEDIR/local
+mkdir -p "${BASEDIR}/local"
 
-cd $BASEDIR || exit 1
+cd "${BASEDIR}" || exit 1
 
 # Enter sudo
 sudo -v
 
 no_command=true
 
-configure_system() {
+configure_all() {
   no_command=false
 
   # If the platform is Linux, try an apt-get to install zsh and then recurse
   if [[ $PLATFORM == "Linux" ]]; then
     if [ -f /etc/debian_version ]; then
-      ./linux/setup.sh
+      ./linux/setup-ubuntu.sh
     elif [ -f /etc/arch-release ]; then
       ./linux/setup-arch.sh
     elif [ -f /etc/solus-release ]; then
@@ -42,7 +44,7 @@ configure_system() {
 
 install_fonts() {
   no_command=false
-  source ./fonts/install.sh
+  source ./scripts/install-fonts.sh
 }
 
 configure_vim() {
@@ -57,41 +59,31 @@ configure_vscode() {
 
 install_zsh() {
   no_command=false
-  export ZSH_CONFIG_TYPE="install"
-  source ./zsh/configure.sh
+  source ./scripts/install-zsh.sh
 }
 
 configure_zsh() {
   no_command=false
-  export ZSH_CONFIG_TYPE="configure"
   source ./zsh/configure.sh
 }
 
-if arg "system"; then configure_system; fi
+if arg "all"; then configure_all; fi
 if arg "fonts" ; then install_fonts; fi
 if arg "vim"   ; then configure_vim; fi
 if arg "vscode"; then configure_vscode; fi
 if arg "install-zsh"; then install_zsh; fi
-if arg "zsh"   ; then configure_zsh; fi
-
-if arg "all"; then
-  no_command=false
-  configure_system
-  configure_vim
-  configure_vscode
-  configure_zsh
-fi
+if arg "configure-zsh"   ; then configure_zsh; fi
 
 if $no_command; then
   echo "Usage: ${0} [args]"
   echo ""
   echo "Arguments:"
-  echo "  --system          Install system tools and fonts"
+  echo "  --all             Install system tools, fonts and themes"
+  echo "  --install-zsh     Install and configure ZSH"
+  echo "  --configure-zsh   Configure ZSH (does not perform install)"
   echo "  --fonts           Install fonts"
   echo "  --vim             Configure VIM"
   echo "  --vscode          Configure VS Code"
-  echo "  --install-zsh     Install and configure ZSH"
-  echo "  --zsh             Configure ZSH (does not perform install)"
   echo ""
   echo "Multiple arguments can be supplied."
 fi

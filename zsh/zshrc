@@ -53,6 +53,7 @@ antigen bundle meister/pure
 #antigen bundle denysdovhan/spaceship-zsh-theme
 
 # Include additional config from ~/.local.zshrc
+[ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
 
 # Syntax Highlighting command line (NOTE! Must be the last one)
