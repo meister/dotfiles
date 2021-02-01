@@ -75,6 +75,15 @@ On Arch Linux the script will add sources and install following packages:
 * code (VS Code from AUR)
 * zsh
 
+### SolusOS Linux
+
+On Arch Linux the script will add sources and install following packages:
+* nodejs (lts)
+* python-pip
+* vim
+* code
+* zsh
+
 ## Zsh
 
 The Zsh installation is based around the [Antigen](http://antigen.sharats.me) package manager.
