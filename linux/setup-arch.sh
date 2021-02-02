@@ -46,7 +46,7 @@ sudo pacman -S \
 (source "${BASEDIR}/editors/vim/configure.sh")
 
 # Open new Gnome Terminal
-# gnome-terminal --tab --profile=snazzyfied
+gnome-terminal --tab --profile=snazzyfied
 
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
 echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
