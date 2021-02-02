@@ -5,10 +5,12 @@ set -e
 cd "${BASEDIR}/linux"
 
 # Install VS Code from AUR
-yaourt -Syu --aur visual-studio-code
+# if command -v yaourt; then
+#   yaourt -Syu --aur visual-studio-code
 
-# shellcheck source=linux/gnome/install-launcher.sh
-source "${BASEDIR}/linux/gnome/install-launcher.sh" visual-studio-code
+#   # shellcheck source=linux/gnome/install-launcher.sh
+#   source "${BASEDIR}/linux/gnome/install-launcher.sh" visual-studio-code
+# fi
 
 # Install any missing packages:
 # - Node.JS with NPM
@@ -18,6 +20,7 @@ source "${BASEDIR}/linux/gnome/install-launcher.sh" visual-studio-code
 sudo pacman -S \
   nodejs npm \
   python-pip \
+  vscode \
   vim \
   zsh
 

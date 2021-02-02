@@ -8,7 +8,9 @@ goals are to bring visibility for the developers about the Node versions and Git
 * [ ] macOS
 * [x] ElementaryOS (Loki)
 * [ ] Ubuntu 18.04
-* [x] Arch Linux (Antergos with Gnome desktop)
+* [x] Arch Linux
+  * [x] Antergos with Gnome desktop
+  * [x] Endeavour OS with Gnome desktop
 * [x] Solus OS (with Gnome desktop)
 
 ## Todo
@@ -72,7 +74,7 @@ On Arch Linux the script will add sources and install following packages:
 * nodejs (lts)
 * python-pip
 * vim
-* code (VS Code from AUR)
+* code (VS Code from AUR, if available)
 * zsh
 
 ### SolusOS Linux
