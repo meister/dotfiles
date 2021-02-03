@@ -36,8 +36,7 @@ sudo apt-get install -y \
   code \
   google-chrome-stable \
   # For add-apt-repository
-  software-properties-common \
-  python-software-properties
+  software-properties-common
 
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
