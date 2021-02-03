@@ -27,6 +27,7 @@ fi
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
 # Install tools from APT
+# For add-apt-repository: software-properties-common
 sudo apt-get install -y \
   git \
   nodejs \
@@ -35,7 +36,6 @@ sudo apt-get install -y \
   zsh \
   code \
   google-chrome-stable \
-  # For add-apt-repository
   software-properties-common
 
 sudo add-apt-repository ppa:jonathonf/vim
