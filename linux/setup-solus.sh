@@ -46,8 +46,9 @@ sudo eopkg install vscode \
 (source "${BASEDIR}/editors/vscode/configure.sh")
 
 # Open new Gnome Terminal
-# gnome-terminal --tab --profile=snazzyfied
+gnome-terminal --tab --profile=snazzyfied
 
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
 echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
+echo -e "${COLOR_GREEN}If not, try restarting the terminal.                      ${COLOR_END}"
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
