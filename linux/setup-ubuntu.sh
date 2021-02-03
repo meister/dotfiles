@@ -31,7 +31,7 @@ sudo apt-get install -y \
   git \
   nodejs \
   build-essential \
-  python-pip \
+  python3-pip \
   zsh \
   code \
   google-chrome-stable \
