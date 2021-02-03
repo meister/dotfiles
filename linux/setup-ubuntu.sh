@@ -75,6 +75,9 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code
 # Clean up
 sudo apt autoremove
 
+# Open new Gnome Terminal
+gnome-terminal --tab --profile=snazzyfied
+
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
 echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
