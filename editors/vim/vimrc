@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Code plugins
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'skanehira/docker-compose.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Syntax detection
 Plugin 'vim-syntastic/syntastic'

@@ -15,7 +15,7 @@ fi
 [ -L ~/.vimrc ] && rm ~/.vimrc
 
 # Link config
-ln -s $BASEDIR/editors/vim/vimrc ~/.vimrc
+ln -s "${BASEDIR}"/editors/vim/vimrc ~/.vimrc
 
 # Install plugins
 vim +PluginClean +qall
