@@ -2,12 +2,15 @@
 
 set -e
 
-cd $BASEDIR/linux
+cd "${BASEDIR}/linux"
 
 # Install VS Code from AUR
-yaourt -Syu --aur visual-studio-code
+# if command -v yaourt; then
+#   yaourt -Syu --aur visual-studio-code
 
-(source ./gnome/install-launcher.sh visual-studio-code)
+#   # shellcheck source=linux/gnome/install-launcher.sh
+#   source "${BASEDIR}/linux/gnome/install-launcher.sh" visual-studio-code
+# fi
 
 # Install any missing packages:
 # - Node.JS with NPM
@@ -17,22 +20,35 @@ yaourt -Syu --aur visual-studio-code
 sudo pacman -S \
   nodejs npm \
   python-pip \
+  vscode \
   vim \
   zsh
 
 
 # Install fonts
-(source $BASEDIR/fonts/install.sh)
+# shellcheck source=scripts/install-fonts.sh
+(source "${BASEDIR}/scripts/install-fonts.sh")
 
-# Configure Zsh
-(source $BASEDIR/zsh/configure.sh)
+# Install NVM
+# shellcheck source=scripts/install-nvm.sh
+(source "${BASEDIR}/scripts/install-nvm.sh")
 
 # Configure terminal
-(source ./install-terminal-themes.sh)
+# shellcheck source=linux/install-terminal-themes.sh
+(source "${BASEDIR}/linux/install-terminal-themes.sh")
+
+# Configure Zsh
+# shellcheck source=zsh/configure.sh
+(source "${BASEDIR}/zsh/configure.sh")
+
+# Configure VIM
+# shellcheck source=editors/vim/configure.sh
+(source "${BASEDIR}/editors/vim/configure.sh")
 
 # Open new Gnome Terminal
-# gnome-terminal --tab --profile=snazzyfied
+gnome-terminal --tab --profile=snazzyfied
 
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
 echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
+echo -e "${COLOR_GREEN}If not, try restarting the terminal.                      ${COLOR_END}"
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"

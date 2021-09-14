@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-export BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export BASEDIR
 
 # Libs
-source ${BASEDIR}/libs/colors.sh
+# shellcheck source=libs/colors.sh
+source "${BASEDIR}/libs/colors.sh"
 
 set -e
 
-[[ -x `command -v wget` ]] && CMD="wget --no-check-certificate -O -"
-[[ -x `command -v curl` ]] >/dev/null 2>&1 && CMD="curl -#L"
+[[ -x $(command -v wget) ]] && CMD="wget --no-check-certificate -O -"
+[[ -x $(command -v curl) ]] >/dev/null 2>&1 && CMD="curl -#L"
 
 function has_git() {
-  if [[ -x `command -v git` ]]; then
-    if `git --version >/dev/null 2>&1 `; then
+  if [[ -x $(command -v git) ]]; then
+    if git --version >/dev/null 2>&1; then
       return 0
     fi
   fi
@@ -53,5 +55,6 @@ else
     eval "${CMD} https://github.com/zsh-users/antigen/tarball/master | tar -xzv -C ~/.dotfiles/antigen --strip-components=1 --exclude='{.gitignore}'"
   fi
 
+  # shellcheck source=setup.sh
   source ~/.dotfiles/setup.sh
 fi

@@ -1,43 +1,46 @@
 #!/usr/bin/env bash
 
-cd $BASEDIR/linux
+cd "${BASEDIR}/linux" || return
+
+update_lists=0
 
 # Apt source for VS Code
 if [ ! -f /etc/apt/sources.list.d/vscode.list ]; then
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+  update_lists=1
 fi
 
 # Apt source for Chrome
-# if [ ! -f /etc/apt/sources.list.d/google.list ]; then
-#    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-#    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-# fi
+if [ ! -f /etc/apt/sources.list.d/google.list ]; then
+   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+   update_lists=1
+fi
 
-# Update lists
-# sudo apt-get update
+if [ $update_lists == 1 ]; then
+  sudo apt-get update
+fi
 
 # Apt source for NodeJS (this will run `sudo apt-get update` internally)
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
 # Install tools from APT
+# For add-apt-repository: software-properties-common
 sudo apt-get install -y \
   git \
   nodejs \
-  python-pip \
+  build-essential \
+  python3-pip \
+  zsh \
   code \
   google-chrome-stable \
-  # For add-apt-repository
-  software-properties-common \
-  python-software-properties
+  software-properties-common
 
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install -y vim
-
-# Install NVM
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
 # Add dock icons
 # Google Chrome
@@ -46,23 +49,36 @@ printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/goog
 printf "[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/code.desktop" >  ~/.config/plank/dock1/launchers/code.dockitem
 
 # Install fonts
-(source $BASEDIR/fonts/install.sh)
+# shellcheck source=scripts/install-fonts.sh
+(source "${BASEDIR}/scripts/install-fonts.sh")
 
-# Configure terminal themes
-(source ./install-terminal-themes.sh)
+# Install NVM
+# shellcheck source=scripts/install-nvm.sh
+(source "${BASEDIR}/scripts/install-nvm.sh")
 
-# Install Zsh
-(source $BASEDIR/zsh/configure.sh)
+# Configure terminal
+# shellcheck source=linux/install-terminal-themes.sh
+(source "${BASEDIR}/linux/install-terminal-themes.sh")
+
+# Configure Zsh
+# shellcheck source=zsh/configure.sh
+(source "${BASEDIR}/zsh/configure.sh")
 
 # Configure VIM
-(source $BASEDIR/editors/vim/configure.sh)
+# shellcheck source=editors/vim/configure.sh
+(source "${BASEDIR}/editors/vim/configure.sh")
 
 # Configure VS Code
-(source $BASEDIR/editors/vscode/configure.sh)
+# shellcheck source=editors/vscode/configure.sh
+(source "${BASEDIR}/editors/vscode/configure.sh")
 
 # Clean up
 sudo apt autoremove
 
+# Open new Gnome Terminal
+gnome-terminal --tab --profile=snazzyfied
+
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
 echo -e "${COLOR_GREEN}All done! If all went well, Zsh is running in another tab.${COLOR_END}"
+echo -e "${COLOR_GREEN}If not, try restarting the terminal.                      ${COLOR_END}"
 echo -e "${COLOR_GREEN}----------------------------------------------------------${COLOR_END}"
