@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
@@ -12,11 +14,12 @@ source ~/.dotfiles/antigen/antigen.zsh
 source ~/.dotfiles/zsh/keybinds.zsh
 
 # Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+#antigen use oh-my-zsh
 
 # NVM & NPM plugins
 export NVM_AUTO_USE=true
-antigen bundle lukechilds/zsh-nvm
+export NVM_LAZY_LOAD=true
+# antigen bundle lukechilds/zsh-nvm
 antigen bundle lukechilds/zsh-better-npm-completion
 
 export NVM_DIR="$HOME/.nvm"
@@ -62,3 +65,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tell antigen that you're done.
 antigen apply
+
+
+zprof

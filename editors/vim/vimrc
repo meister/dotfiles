@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Code plugins
-Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'editorconfig/editorconfig-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'skanehira/docker-compose.vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -43,6 +43,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Colorschemes
 Plugin 'chriskempson/base16-vim'
 Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'notpratheek/vim-luna'
 
 " Color theme switcher
 Plugin 'felixhummel/setcolors.vim'
@@ -63,10 +64,14 @@ let mapleader=","
 
 syntax enable
 
-" colorscheme base16-oceanicnext
-" colorscheme quantum
+" colorscheme luna
+"colorscheme base16-oceanicnext
+"colorscheme quantum
 " let g:quantum_black=1
 " let g:airline_theme='quantum'
+let g:airline_theme='luna'
+
+let base16colorspace=256
 
 set background=dark
 set hidden               " Required by CTRL+Space
@@ -130,4 +135,6 @@ endif
 " let g:airline_symbols.notexists = '∄'
 " let g:airline_symbols.whitespace = 'Ξ'
 
-colorscheme base16-default-dark
+"colorscheme base16-default-dark
+" colorscheme luna
+colorscheme base16-material
