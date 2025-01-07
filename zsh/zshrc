@@ -51,7 +51,8 @@ antidote bundle zsh-users/zsh-completions
 # Pure theme
 export PURE_NODE_TRACK=1
 antidote bundle mafredri/zsh-async
-antidote bundle sindresorhus/pure
+# antidote bundle sindresorhus/pure
+antidote bundle meister/pure
 
 # antidote bundle tylerreckart/hyperzsh
 #antidote bundle denysdovhan/spaceship-zsh-theme
