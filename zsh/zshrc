@@ -3,6 +3,9 @@ DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
 export ANTIDOTE_CACHE=~/.antidote-cache
 
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 # Load local configurations
 [[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
 [[ -f ~/.dotfiles/local/pip-completion.zsh ]] && source ~/.dotfiles/local/pip-completion.zsh
@@ -56,12 +59,6 @@ antidote bundle sindresorhus/pure
 # Include additional config from ~/.local.zshrc
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
-
-# Home / End keys on Mac
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[D" backward-word
-bindkey "^[[C" forward-word
 
 # Syntax Highlighting command line (NOTE! Must be the last one)
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'

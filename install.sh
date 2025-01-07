@@ -30,35 +30,32 @@ else
   if has_git; then
     echo -e "${COLOR_WHITE}Using Git to download scripts${COLOR_END}"
 
-    GET_DOTFILES="git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
-    GET_ANTIDOTE="git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote"
-
     if [ -d ~/.dotfiles ]; then
       if [ ! -d ~/.dotfiles/.git ]; then
         mv ~/.dotfiles ~/.dotfiles_backup
         echo "Backed up previous dotfiles to ~/.dotfiles_backup"
-        $GET_DOTFILES
+        git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles
       else
         echo "Pulling updates to existing ~/.dotfiles"
         (cd ~/.dotfiles && git pull)
       fi
     else
       echo "Installing dotfiles"
-      $GET_DOTFILES
+      git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles
     fi
 
     if [ -d ~/.antidote ]; then
       if [ ! -d ~/.antidote/.git ]; then
         mv ~/.antidote ~/.antidote_backup
         echo "Backed up previous antidote to ~/.antidote_backup"
-        $GET_ANTIDOTE
+        git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
       else
         echo "Pulling updates to existing ~/.antidote"
         (cd ~/.antidote && git pull)
       fi
     else
       echo "Installing antidote"
-      $GET_ANTIDOTE
+      git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
     fi
   else
     echo -e "${COLOR_WHITE}Using ${CMD} to download scripts${COLOR_END}"
