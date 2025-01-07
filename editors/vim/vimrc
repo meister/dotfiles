@@ -13,7 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'skanehira/docker-compose.vim'
-Plugin 'editorconfig/editorconfig-vim'
 
 " Syntax detection
 Plugin 'vim-syntastic/syntastic'
@@ -38,11 +37,10 @@ Plugin 'ryanoasis/vim-devicons'
 
 " Airline
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rakr/vim-one'
 
 " Colorschemes
 Plugin 'chriskempson/base16-vim'
-Plugin 'tyrannicaltoucan/vim-quantum'
 
 " Color theme switcher
 Plugin 'felixhummel/setcolors.vim'
@@ -67,6 +65,7 @@ syntax enable
 " colorscheme quantum
 " let g:quantum_black=1
 " let g:airline_theme='quantum'
+let g:airline_theme='one'
 
 set background=dark
 set hidden               " Required by CTRL+Space
@@ -130,4 +129,4 @@ endif
 " let g:airline_symbols.notexists = '∄'
 " let g:airline_symbols.whitespace = 'Ξ'
 
-colorscheme base16-default-dark
+colorscheme base16-snazzy

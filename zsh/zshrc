@@ -1,23 +1,24 @@
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 DISABLE_UPDATE_PROMPT=true
 PLATFORM=$(uname)
-export ANTIGEN_CACHE=~/.antigen-cache
+export ANTIDOTE_CACHE=~/.antidote-cache
 
 # Load local configurations
 [[ -f ~/.dotfiles/local/env.zsh ]] && source ~/.dotfiles/local/env.zsh
 [[ -f ~/.dotfiles/local/pip-completion.zsh ]] && source ~/.dotfiles/local/pip-completion.zsh
 
-# Load Antigen package manager
-source ~/.dotfiles/antigen/antigen.zsh
+# Load Antidote package manager
+source ~/.antidote/antidote.zsh
 source ~/.dotfiles/zsh/keybinds.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Initialize antidote's dynamic mode, which changes `antidote bundle`
+# from static mode.
+source <(antidote init)
 
 # NVM & NPM plugins
 export NVM_AUTO_USE=true
-antigen bundle lukechilds/zsh-nvm
-antigen bundle lukechilds/zsh-better-npm-completion
+antidote bundle lukechilds/zsh-nvm
+antidote bundle lukechilds/zsh-better-npm-completion
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -26,39 +27,42 @@ export NVM_DIR="$HOME/.nvm"
 if [[ $PLATFORM == 'Darwin' ]]; then
   # In case if iTerm include shell integration script (disabled for now)
   # [[ "$TERM_PROGRAM" == "iTerm.app" ]] && source ~/.iterm2_shell_integration.`basename $SHELL`
-  antigen bundle xcode
+  antidote bundle ohmyzsh/ohmyzsh path:plugins/xcode
 elif [[ $PLATFORM == 'Linux' ]]; then
-  antigen bundle ubuntu
+  antidote bundle ohmyzsh/ohmyzsh path:plugins/ubuntu
 fi
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle docker
+antidote bundle ohmyzsh/ohmyzsh path:plugins/git
+antidote bundle ohmyzsh/ohmyzsh path:plugins/pip
+antidote bundle ohmyzsh/ohmyzsh path:plugins/command-not-found
+antidote bundle ohmyzsh/ohmyzsh path:plugins/docker
 
 # VIM Vundle cmd line script
-antigen bundle vundle
+antidote bundle ohmyzsh/ohmyzsh path:plugins/vundle
 
 # Autosuggest from history
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+antidote bundle zsh-users/zsh-autosuggestions
+antidote bundle zsh-users/zsh-completions
 
 # Pure theme
 export PURE_NODE_TRACK=1
-antigen bundle mafredri/zsh-async
-antigen bundle meister/pure
+antidote bundle mafredri/zsh-async
+antidote bundle sindresorhus/pure
 
-# antigen bundle tylerreckart/hyperzsh
-#antigen bundle denysdovhan/spaceship-zsh-theme
+# antidote bundle tylerreckart/hyperzsh
+#antidote bundle denysdovhan/spaceship-zsh-theme
 
 # Include additional config from ~/.local.zshrc
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
 
+# Home / End keys on Mac
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[D" backward-word
+bindkey "^[[C" forward-word
+
 # Syntax Highlighting command line (NOTE! Must be the last one)
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Tell antigen that you're done.
-antigen apply
+antidote bundle zsh-users/zsh-syntax-highlighting

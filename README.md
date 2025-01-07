@@ -15,7 +15,7 @@ goals are to bring visibility for the developers about the Node versions and Git
 
 ## Todo
 * [ ] Include [Snazzyfied theme](https://github.com/meister/vim-snazzyfied) for VIM
-* [ ] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
+* [x] Include [Snazzyfied theme](https://github.com/meister/vscode-snazzyfied) for VS Code
 * [x] Update .vimrc to include [Vundle](https://github.com/VundleVim/Vundle.vim) and some of the
   subjectively necessary plugins
 * [x] Make install components configurable

@@ -30,19 +30,36 @@ else
   if has_git; then
     echo -e "${COLOR_WHITE}Using Git to download scripts${COLOR_END}"
 
-    CMD="git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
+    GET_DOTFILES="git clone --recursive https://github.com/meister/dotfiles ~/.dotfiles"
+    GET_ANTIDOTE="git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote"
 
     if [ -d ~/.dotfiles ]; then
       if [ ! -d ~/.dotfiles/.git ]; then
         mv ~/.dotfiles ~/.dotfiles_backup
         echo "Backed up previous dotfiles to ~/.dotfiles_backup"
+        $GET_DOTFILES
       else
         echo "Pulling updates to existing ~/.dotfiles"
-        CMD="(cd ~/.dotfiles && git pull --recurse-submodules)"
+        (cd ~/.dotfiles && git pull)
       fi
+    else
+      echo "Installing dotfiles"
+      $GET_DOTFILES
     fi
 
-    eval "${CMD}"
+    if [ -d ~/.antidote ]; then
+      if [ ! -d ~/.antidote/.git ]; then
+        mv ~/.antidote ~/.antidote_backup
+        echo "Backed up previous antidote to ~/.antidote_backup"
+        $GET_ANTIDOTE
+      else
+        echo "Pulling updates to existing ~/.antidote"
+        (cd ~/.antidote && git pull)
+      fi
+    else
+      echo "Installing antidote"
+      $GET_ANTIDOTE
+    fi
   else
     echo -e "${COLOR_WHITE}Using ${CMD} to download scripts${COLOR_END}"
     if [ -d ~/.dotfiles ]; then
@@ -52,7 +69,7 @@ else
 
     mkdir -p ~/.dotfiles
     eval "${CMD} https://github.com/meister/dotfiles/tarball/master | tar -xzv -C ~/.dotfiles --strip-components=1 --exclude='{.gitignore}'"
-    eval "${CMD} https://github.com/zsh-users/antigen/tarball/master | tar -xzv -C ~/.dotfiles/antigen --strip-components=1 --exclude='{.gitignore}'"
+    eval "${CMD} https://github.com/mattmc3/antidote/tarball/master | tar -xzv -C ~/.antidote --strip-components=1 --exclude='{.gitignore}'"
   fi
 
   # shellcheck source=setup.sh
